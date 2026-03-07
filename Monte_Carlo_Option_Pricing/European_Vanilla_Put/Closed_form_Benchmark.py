@@ -33,4 +33,4 @@ print(f"95% Confidence Interval: [{results[1]:.2f}, {results[2]:.2f}]")
 
 antithetic = get_SE_CI_antithetic(S0, K, r, q, sigma, T, N)
 print(f"Standard Error, {antithetic[0]:.2f}")
-print(f"95% Confidence Interval with antithetic approach: [{antithetic[1]:.2f}, {results[2]:.2f}]")
+print(f"95% Confidence Interval with antithetic approach: [{antithetic[1]:.2f}, {antithetic[2]:.2f}]")
