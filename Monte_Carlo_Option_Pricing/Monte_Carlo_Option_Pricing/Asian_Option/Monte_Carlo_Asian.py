@@ -73,3 +73,15 @@ def get_put_estimate(S0, K, r, q, sigma, T, N, n_steps):
     discounted_payoff = np.exp(-r * T) * Asian_put_payoff
     estimate_price = (1/N) * np.sum(discounted_payoff, axis=0)
     return estimate_price
+
+# put together function only for convergence test use, return price and discounted payoff
+def get_call_estimate_discounted_payoff(S0, K, r, q, sigma, T, N, n_steps):
+    Z = get_Z(N, n_steps)
+    dt = get_dt(T, n_steps)
+    log_return_matrix = get_log_returns(r, q, sigma, dt, Z)
+    S_matrix = get_S_matrix(S0, log_return_matrix)
+    average_ST = get_average_ST(S_matrix)
+    Asian_call_payoff = get_Asian_call_payoff(K, average_ST)
+    discounted_payoff = np.exp(-r * T) * Asian_call_payoff
+    estimate_price = (1/N) * np.sum(discounted_payoff, axis=0)
+    return estimate_price, discounted_payoff
