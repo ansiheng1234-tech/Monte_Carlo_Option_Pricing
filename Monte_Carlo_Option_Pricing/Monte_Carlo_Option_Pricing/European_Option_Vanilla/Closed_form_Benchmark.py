@@ -1,6 +1,5 @@
 import numpy as np 
 from BSM_Option_Pricing import bsm_option_value, get_SE_CI_antithetic
-import Monte_Carlo_Pricing
 
 # S0 : initial stock price
 # K  : strike price
